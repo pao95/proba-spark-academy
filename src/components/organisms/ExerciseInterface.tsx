@@ -3,40 +3,98 @@ import { useState } from 'react';
 import { ExerciseItem } from '@/components/molecules/ExerciseItem';
 import { CustomExerciseInput } from '@/components/molecules/CustomExerciseInput';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 
 export const ExerciseInterface = () => {
+  const [selectedUnit, setSelectedUnit] = useState('unit-1');
+  const [selectedTopic, setSelectedTopic] = useState('random-variables');
   const [currentExercise, setCurrentExercise] = useState(0);
   
-  const exercises = [
+  const units = [
     {
-      id: 1,
-      type: 'multiple-choice' as const,
-      question: 'What is the mean of the dataset: 4, 6, 8, 10, 12?',
-      options: ['6', '8', '10', '12'],
-      correctAnswer: 1,
-      explanation: 'To find the mean, add all values (4+6+8+10+12=40) and divide by the number of values (5). So 40/5 = 8.'
+      id: 'unit-1',
+      title: 'Introduction to Probability',
+      topics: [
+        { id: 'random-variables', title: 'Random Variables' },
+        { id: 'discrete-variables', title: 'Discrete Random Variables' },
+        { id: 'probability-mass', title: 'Probability Mass Functions' },
+        { id: 'expected-value', title: 'Expected Value and Variance' },
+      ]
     },
     {
-      id: 2,
-      type: 'true-false' as const,
-      question: 'The median is always equal to the mean in a normal distribution.',
-      correctAnswer: true,
-      explanation: 'In a perfectly normal distribution, the mean, median, and mode are all equal due to the symmetrical nature of the distribution.'
+      id: 'unit-2',
+      title: 'Common Probability Distributions',
+      topics: [
+        { id: 'continuous-variables', title: 'Continuous Random Variables' },
+        { id: 'probability-density', title: 'Probability Density Functions' },
+        { id: 'cumulative-distribution', title: 'Cumulative Distribution Functions' },
+        { id: 'normal-distribution', title: 'Normal Distribution' },
+      ]
     },
     {
-      id: 3,
-      type: 'open-ended' as const,
-      question: 'Explain the difference between population and sample variance. Include the formulas and when to use each.',
-      correctAnswer: 'Population variance uses n in denominator, sample variance uses n-1',
-      explanation: 'Population variance (σ²) uses n in the denominator when you have data for the entire population. Sample variance (s²) uses n-1 in the denominator (Bessel\'s correction) to provide an unbiased estimate of population variance when working with a sample.'
-    }
+      id: 'unit-3',
+      title: 'Statistical Inference',
+      topics: [
+        { id: 'confidence-intervals', title: 'Confidence Intervals' },
+        { id: 'hypothesis-testing', title: 'Hypothesis Testing' },
+        { id: 'statistical-significance', title: 'Statistical Significance' },
+        { id: 'p-values', title: 'P-values and Critical Values' },
+      ]
+    },
   ];
+
+  const getExercisesForTopic = (topicId: string) => {
+    switch (topicId) {
+      case 'random-variables':
+        return [
+          {
+            id: 1,
+            type: 'multiple-choice' as const,
+            question: 'What is the expected value of a fair six-sided die?',
+            options: ['2.5', '3.5', '4.0', '4.5'],
+            correctAnswer: 1,
+            explanation: 'The expected value is (1+2+3+4+5+6)/6 = 21/6 = 3.5'
+          },
+          {
+            id: 2,
+            type: 'true-false' as const,
+            question: 'A random variable must always take positive values.',
+            correctAnswer: false,
+            explanation: 'Random variables can take any real values, including negative numbers and zero.'
+          }
+        ];
+      case 'discrete-variables':
+        return [
+          {
+            id: 3,
+            type: 'multiple-choice' as const,
+            question: 'Which of the following is an example of a discrete random variable?',
+            options: ['Height of a person', 'Number of students in a class', 'Temperature', 'Weight'],
+            correctAnswer: 1,
+            explanation: 'Number of students is countable and takes distinct integer values, making it discrete.'
+          }
+        ];
+      default:
+        return [
+          {
+            id: 99,
+            type: 'multiple-choice' as const,
+            question: 'This is a placeholder exercise for the selected topic.',
+            options: ['Option A', 'Option B', 'Option C', 'Option D'],
+            correctAnswer: 0,
+            explanation: 'More exercises will be available for this topic soon.'
+          }
+        ];
+    }
+  };
+
+  const currentExercises = getExercisesForTopic(selectedTopic);
 
   return (
     <div className="space-y-6">
       <div>
         <h1 className="text-3xl font-bold text-gray-800">Exercises</h1>
-        <p className="text-gray-600 mt-2">Practice problems to test your understanding</p>
+        <p className="text-gray-600 mt-2">Practice problems organized by units and topics</p>
       </div>
       
       <Tabs defaultValue="practice" className="w-full">
@@ -46,30 +104,69 @@ export const ExerciseInterface = () => {
         </TabsList>
         
         <TabsContent value="practice" className="space-y-6">
-          <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-            <div className="flex items-center justify-between mb-6">
-              <h2 className="text-xl font-semibold text-gray-800">
-                Exercise {currentExercise + 1} of {exercises.length}
-              </h2>
-              <div className="flex space-x-2">
-                <button
-                  onClick={() => setCurrentExercise(Math.max(0, currentExercise - 1))}
-                  disabled={currentExercise === 0}
-                  className="px-4 py-2 bg-gray-100 text-gray-600 rounded-lg disabled:opacity-50 hover:bg-gray-200 transition-colors"
-                >
-                  Previous
-                </button>
-                <button
-                  onClick={() => setCurrentExercise(Math.min(exercises.length - 1, currentExercise + 1))}
-                  disabled={currentExercise === exercises.length - 1}
-                  className="px-4 py-2 bg-blue-600 text-white rounded-lg disabled:opacity-50 hover:bg-blue-700 transition-colors"
-                >
-                  Next
-                </button>
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
+            <div className="lg:col-span-1">
+              <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-4">
+                <h3 className="font-semibold text-gray-800 mb-4">Units & Topics</h3>
+                <Accordion type="single" value={selectedUnit} onValueChange={setSelectedUnit}>
+                  {units.map((unit) => (
+                    <AccordionItem key={unit.id} value={unit.id}>
+                      <AccordionTrigger className="text-sm font-medium text-gray-700 hover:no-underline">
+                        {unit.title}
+                      </AccordionTrigger>
+                      <AccordionContent>
+                        <nav className="space-y-1 ml-2">
+                          {unit.topics.map((topic) => (
+                            <button
+                              key={topic.id}
+                              onClick={() => {
+                                setSelectedTopic(topic.id);
+                                setCurrentExercise(0);
+                              }}
+                              className={`w-full text-left px-3 py-2 rounded-lg text-sm transition-colors ${
+                                selectedTopic === topic.id
+                                  ? 'bg-blue-50 text-blue-600 font-medium'
+                                  : 'text-gray-600 hover:bg-gray-50'
+                              }`}
+                            >
+                              {topic.title}
+                            </button>
+                          ))}
+                        </nav>
+                      </AccordionContent>
+                    </AccordionItem>
+                  ))}
+                </Accordion>
               </div>
             </div>
-            
-            <ExerciseItem exercise={exercises[currentExercise]} />
+
+            <div className="lg:col-span-3">
+              <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+                <div className="flex items-center justify-between mb-6">
+                  <h2 className="text-xl font-semibold text-gray-800">
+                    Exercise {currentExercise + 1} of {currentExercises.length}
+                  </h2>
+                  <div className="flex space-x-2">
+                    <button
+                      onClick={() => setCurrentExercise(Math.max(0, currentExercise - 1))}
+                      disabled={currentExercise === 0}
+                      className="px-4 py-2 bg-gray-100 text-gray-600 rounded-lg disabled:opacity-50 hover:bg-gray-200 transition-colors"
+                    >
+                      Previous
+                    </button>
+                    <button
+                      onClick={() => setCurrentExercise(Math.min(currentExercises.length - 1, currentExercise + 1))}
+                      disabled={currentExercise === currentExercises.length - 1}
+                      className="px-4 py-2 bg-blue-600 text-white rounded-lg disabled:opacity-50 hover:bg-blue-700 transition-colors"
+                    >
+                      Next
+                    </button>
+                  </div>
+                </div>
+                
+                <ExerciseItem exercise={currentExercises[currentExercise]} />
+              </div>
+            </div>
           </div>
         </TabsContent>
         
