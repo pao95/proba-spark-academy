@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { ExerciseItem } from '@/components/molecules/ExerciseItem';
 import { CustomExerciseInput } from '@/components/molecules/CustomExerciseInput';
@@ -91,23 +90,23 @@ export const ExerciseInterface = () => {
   const currentExercises = getExercisesForTopic(selectedTopic);
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4 sm:space-y-6">
       <div>
-        <h1 className="text-3xl font-bold text-gray-800">Exercises</h1>
-        <p className="text-gray-600 mt-2">Practice problems organized by units and topics</p>
+        <h1 className="text-2xl sm:text-3xl font-bold text-gray-800">Exercises</h1>
+        <p className="text-gray-600 mt-2 text-sm sm:text-base">Practice problems organized by units and topics</p>
       </div>
       
       <Tabs defaultValue="practice" className="w-full">
         <TabsList className="grid w-full grid-cols-2">
-          <TabsTrigger value="practice">Practice Exercises</TabsTrigger>
-          <TabsTrigger value="custom">Custom Problem</TabsTrigger>
+          <TabsTrigger value="practice" className="text-xs sm:text-sm">Practice Exercises</TabsTrigger>
+          <TabsTrigger value="custom" className="text-xs sm:text-sm">Custom Problem</TabsTrigger>
         </TabsList>
         
-        <TabsContent value="practice" className="space-y-6">
-          <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
+        <TabsContent value="practice" className="space-y-4 sm:space-y-6">
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 sm:gap-6">
             <div className="lg:col-span-1">
               <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-4">
-                <h3 className="font-semibold text-gray-800 mb-4">Units & Topics</h3>
+                <h3 className="font-semibold text-gray-800 mb-4 text-sm sm:text-base">Units & Topics</h3>
                 <Accordion type="single" value={selectedUnit} onValueChange={setSelectedUnit}>
                   {units.map((unit) => (
                     <AccordionItem key={unit.id} value={unit.id}>
@@ -123,7 +122,7 @@ export const ExerciseInterface = () => {
                                 setSelectedTopic(topic.id);
                                 setCurrentExercise(0);
                               }}
-                              className={`w-full text-left px-3 py-2 rounded-lg text-sm transition-colors ${
+                              className={`w-full text-left px-3 py-2 rounded-lg text-xs sm:text-sm transition-colors ${
                                 selectedTopic === topic.id
                                   ? 'bg-blue-50 text-blue-600 font-medium'
                                   : 'text-gray-600 hover:bg-gray-50'
@@ -141,23 +140,23 @@ export const ExerciseInterface = () => {
             </div>
 
             <div className="lg:col-span-3">
-              <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-                <div className="flex items-center justify-between mb-6">
-                  <h2 className="text-xl font-semibold text-gray-800">
+              <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-4 sm:p-6">
+                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-6 gap-4">
+                  <h2 className="text-lg sm:text-xl font-semibold text-gray-800">
                     Exercise {currentExercise + 1} of {currentExercises.length}
                   </h2>
-                  <div className="flex space-x-2">
+                  <div className="flex space-x-2 w-full sm:w-auto">
                     <button
                       onClick={() => setCurrentExercise(Math.max(0, currentExercise - 1))}
                       disabled={currentExercise === 0}
-                      className="px-4 py-2 bg-gray-100 text-gray-600 rounded-lg disabled:opacity-50 hover:bg-gray-200 transition-colors"
+                      className="flex-1 sm:flex-none px-3 sm:px-4 py-2 bg-gray-100 text-gray-600 rounded-lg disabled:opacity-50 hover:bg-gray-200 transition-colors text-sm"
                     >
                       Previous
                     </button>
                     <button
                       onClick={() => setCurrentExercise(Math.min(currentExercises.length - 1, currentExercise + 1))}
                       disabled={currentExercise === currentExercises.length - 1}
-                      className="px-4 py-2 bg-blue-600 text-white rounded-lg disabled:opacity-50 hover:bg-blue-700 transition-colors"
+                      className="flex-1 sm:flex-none px-3 sm:px-4 py-2 bg-blue-600 text-white rounded-lg disabled:opacity-50 hover:bg-blue-700 transition-colors text-sm"
                     >
                       Next
                     </button>

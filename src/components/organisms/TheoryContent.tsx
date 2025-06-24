@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { TheoryBlock } from '@/components/molecules/TheoryBlock';
 import { FormulaBlock } from '@/components/molecules/FormulaBlock';
@@ -93,16 +92,16 @@ export const TheoryContent = () => {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4 sm:space-y-6">
       <div>
-        <h1 className="text-3xl font-bold text-gray-800">Theory</h1>
-        <p className="text-gray-600 mt-2">Explore probability and statistics concepts organized by units</p>
+        <h1 className="text-2xl sm:text-3xl font-bold text-gray-800">Theory</h1>
+        <p className="text-gray-600 mt-2 text-sm sm:text-base">Explore probability and statistics concepts organized by units</p>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 sm:gap-6">
         <div className="lg:col-span-1">
           <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-4">
-            <h3 className="font-semibold text-gray-800 mb-4">Units & Topics</h3>
+            <h3 className="font-semibold text-gray-800 mb-4 text-sm sm:text-base">Units & Topics</h3>
             <Accordion type="single" value={selectedUnit} onValueChange={setSelectedUnit}>
               {units.map((unit) => (
                 <AccordionItem key={unit.id} value={unit.id}>
@@ -115,7 +114,7 @@ export const TheoryContent = () => {
                         <button
                           key={topic.id}
                           onClick={() => setSelectedTopic(topic.id)}
-                          className={`w-full text-left px-3 py-2 rounded-lg text-sm transition-colors ${
+                          className={`w-full text-left px-3 py-2 rounded-lg text-xs sm:text-sm transition-colors ${
                             selectedTopic === topic.id
                               ? 'bg-blue-50 text-blue-600 font-medium'
                               : 'text-gray-600 hover:bg-gray-50'
@@ -133,7 +132,9 @@ export const TheoryContent = () => {
         </div>
         
         <div className="lg:col-span-3">
-          {getContentForTopic(selectedTopic)}
+          <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-4 sm:p-6">
+            {getContentForTopic(selectedTopic)}
+          </div>
         </div>
       </div>
     </div>

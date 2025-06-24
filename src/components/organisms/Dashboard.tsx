@@ -12,14 +12,14 @@ export const Dashboard = () => {
   ];
 
   return (
-    <div className="space-y-8">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+    <div className="space-y-6 sm:space-y-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
         <QuickStats />
       </div>
       
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
         <div className="lg:col-span-2">
-          <h2 className="text-xl font-semibold text-gray-800 mb-4">Continue Learning</h2>
+          <h2 className="text-lg sm:text-xl font-semibold text-gray-800 mb-4">Continue Learning</h2>
           <div className="space-y-4">
             {recentTopics.map((topic) => (
               <TopicCard key={topic.id} topic={topic} />
@@ -28,7 +28,7 @@ export const Dashboard = () => {
         </div>
         
         <div>
-          <h2 className="text-xl font-semibold text-gray-800 mb-4">Your Progress</h2>
+          <h2 className="text-lg sm:text-xl font-semibold text-gray-800 mb-4">Your Progress</h2>
           <ProgressCard />
           <div className="mt-6">
             <RecentActivity />
