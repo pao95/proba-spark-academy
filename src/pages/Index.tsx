@@ -1,7 +1,6 @@
-
-import { useState } from 'react';
-import { AppLayout } from '@/components/templates/AppLayout';
-import { Dashboard } from '@/components/organisms/Dashboard';
+import { useState } from "react";
+import { AppLayout } from "@/components/templates/AppLayout";
+import { Dashboard } from "@/components/organisms/dashboard";
 
 const Index = () => {
   return (

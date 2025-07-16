@@ -1,6 +1,5 @@
-
-import { AppLayout } from '@/components/templates/AppLayout';
-import { ProgressDashboard } from '@/components/organisms/ProgressDashboard';
+import { AppLayout } from "@/components/templates/AppLayout";
+import { ProgressDashboard } from "@/components/organisms/progress-dashboard";
 
 const Progress = () => {
   return (

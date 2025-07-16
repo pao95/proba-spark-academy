@@ -1,6 +1,5 @@
-
-import { AppLayout } from '@/components/templates/AppLayout';
-import { TheoryContent } from '@/components/organisms/TheoryContent';
+import { AppLayout } from "@/components/templates/AppLayout";
+import { TheoryContent } from "@/components/organisms/theory-content";
 
 const Theory = () => {
   return (

@@ -4,7 +4,7 @@ alwaysApply: true
 
 # React Rules
 
-You are an expert in TypeScript and React development.
+You are an expert in TypeScript and React development and in best development practices.
 
 ## Components
 
@@ -38,6 +38,16 @@ components/organisms/header
 └── types.ts
 ```
 
+### Screen Composition Rule
+
+A screen must be composed by organisms to ensure everything is properly componentized. Screens should not contain direct business logic or complex UI elements - they should orchestrate organisms that handle specific functionality.
+
+**Example:**
+
+- A dashboard screen should use organisms like `DashboardHeader`, `DashboardContent`, `DashboardSidebar`
+- A form screen should use organisms like `FormHeader`, `FormContent`, `FormActions`
+- A list screen should use organisms like `ListHeader`, `ListContent`, `ListPagination`
+
 ## Implementing the modules
 
 Each module must follow the MVP (Model-View-Presenter) architecture with the following structure:
@@ -65,11 +75,6 @@ modules/moduleName/
 │       ├── ModuleNamePresenter.ts
 │       └── presenterProvider.ts
 └── screens/                        // UI components (View)
-    ├── components/                 // Module-specific components
-    │   └── componentName/          // component-specific component folder
-    │       ├── index.tsx           // Main component file
-    │       ├── styles.ts
-    │       └── types.ts
     ├── index.tsx                   // Main module screen
     ├── styles.ts
     └── types.ts
@@ -191,9 +196,11 @@ src/assets/i18n/
       "delete": "Eliminar"
     }
   },
-  "componentName": {
-    "label": "Etiqueta del componente",
-    "placeholder": "Placeholder del componente"
+  "components": {
+    "componentName": {
+      "label": "Etiqueta del componente",
+      "placeholder": "Placeholder del componente"
+    }
   }
 }
 ```

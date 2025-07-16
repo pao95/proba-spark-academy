@@ -1,6 +1,5 @@
-
-import { AppLayout } from '@/components/templates/AppLayout';
-import { AIChat } from '@/components/organisms/AIChat';
+import { AppLayout } from "@/components/templates/AppLayout";
+import { AIChat } from "@/components/organisms/ai-chat";
 
 const Assistant = () => {
   return (
