@@ -1,0 +1,163 @@
+{
+  "general": {
+    "welcome": "Bienvenido",
+    "loading": "Cargando...",
+    "error": "Error",
+    "search": "Buscar",
+    "continue": "Continuar",
+    "start": "Comenzar",
+    "save": "Guardar",
+    "cancel": "Cancelar",
+    "delete": "Eliminar",
+    "edit": "Editar",
+    "close": "Cerrar",
+    "next": "Siguiente",
+    "previous": "Anterior",
+    "submit": "Enviar",
+    "reset": "Reiniciar",
+    "back": "Volver",
+    "more": "Más",
+    "less": "Menos",
+    "all": "Todos",
+    "none": "Ninguno",
+    "yes": "Sí",
+    "no": "No",
+    "ok": "Aceptar",
+    "student": "Estudiante",
+    "progress": "Progreso",
+    "difficulty": "Dificultad",
+    "time": "Tiempo",
+    "topics": "Temas",
+    "covered": "Cubiertos",
+    "notifications": "Notificaciones",
+    "profile": "Perfil",
+    "menu": "Menú",
+    "settings": "Configuración",
+    "help": "Ayuda",
+    "logout": "Cerrar sesión",
+    "complete": "completo",
+    "locked": "Bloqueado",
+    "upload": "Subir",
+    "select": "Seleccionar",
+    "of": "de"
+  },
+  "header": {
+    "title": "Probabilidad y Estadística",
+    "searchPlaceholder": "Buscar temas...",
+    "notifications": "Notificaciones"
+  },
+  "sidebar": {
+    "dashboard": "Dashboard",
+    "curriculum": "Currículo",
+    "theory": "Teoría",
+    "exercises": "Ejercicios",
+    "progress": "Progreso",
+    "assistant": "Asistente",
+    "settings": "Configuración"
+  },
+  "dashboard": {
+    "continueLearning": "Continuar Aprendiendo",
+    "yourProgress": "Tu Progreso",
+    "recentTopics": "Temas Recientes",
+    "quickStats": "Estadísticas Rápidas"
+  },
+  "unitCard": {
+    "startLearning": "Comenzar Aprendizaje",
+    "continueLearning": "Continuar Aprendiendo",
+    "topicsCovered": "Temas cubiertos:",
+    "moreTopics": "más temas",
+    "beginner": "Principiante",
+    "intermediate": "Intermedio",
+    "advanced": "Avanzado"
+  },
+  "topicCard": {
+    "lastStudied": "Último estudio:",
+    "daysAgo": "días atrás",
+    "weekAgo": "semana atrás",
+    "weeksAgo": "semanas atrás"
+  },
+  "progressCard": {
+    "overallProgress": "Progreso General",
+    "completedTopics": "Temas Completados",
+    "streakDays": "Días de Racha",
+    "accuracy": "Precisión"
+  },
+  "recentActivity": {
+    "title": "Actividad Reciente",
+    "completedExercise": "Ejercicio completado",
+    "finishedTopic": "Tema finalizado",
+    "achievedMilestone": "Hito alcanzado",
+    "minutesAgo": "minutos atrás",
+    "hoursAgo": "horas atrás",
+    "daysAgo": "días atrás"
+  },
+  "quickStats": {
+    "totalTopics": "Total de Temas",
+    "completedTopics": "Temas Completados",
+    "currentStreak": "Racha Actual",
+    "averageAccuracy": "Precisión Promedio"
+  },
+  "theoryContent": {
+    "theory": "Teoría",
+    "formulas": "Fórmulas",
+    "examples": "Ejemplos",
+    "practice": "Práctica"
+  },
+  "exerciseInterface": {
+    "question": "Pregunta",
+    "answer": "Respuesta",
+    "submitAnswer": "Enviar Respuesta",
+    "checkAnswer": "Verificar Respuesta",
+    "nextQuestion": "Siguiente Pregunta",
+    "previousQuestion": "Pregunta Anterior",
+    "hint": "Pista",
+    "solution": "Solución",
+    "explanation": "Explicación",
+    "correct": "Correcto",
+    "incorrect": "Incorrecto",
+    "tryAgain": "Intentar de Nuevo",
+    "practice": "Ejercicios de Práctica",
+    "custom": "Problema Personalizado"
+  },
+  "progressDashboard": {
+    "overallProgress": "Progreso General",
+    "achievements": "Logros",
+    "mistakeAnalysis": "Análisis de Errores",
+    "learningRecommendations": "Recomendaciones de Aprendizaje"
+  },
+  "achievementCard": {
+    "achievement": "Logro",
+    "unlocked": "Desbloqueado",
+    "locked": "Bloqueado",
+    "points": "puntos"
+  },
+  "mistakeAnalysis": {
+    "title": "Análisis de Errores",
+    "commonMistakes": "Errores Comunes",
+    "improvementAreas": "Áreas de Mejora",
+    "practiceMore": "Practicar Más"
+  },
+  "learningRecommendations": {
+    "title": "Recomendaciones de Aprendizaje",
+    "basedOnProgress": "Basado en tu progreso",
+    "suggestedTopics": "Temas Sugeridos",
+    "practiceExercises": "Ejercicios de Práctica"
+  },
+  "aiChat": {
+    "title": "Asistente IA",
+    "placeholder": "Escribe tu pregunta...",
+    "send": "Enviar",
+    "thinking": "Pensando...",
+    "newChat": "Nuevo Chat",
+    "clearChat": "Limpiar Chat"
+  },
+  "curriculumGrid": {
+    "title": "Currículo",
+    "units": "Unidades",
+    "topics": "Temas",
+    "prerequisites": "Prerrequisitos",
+    "estimatedTime": "Tiempo Estimado",
+    "difficulty": "Dificultad",
+    "next": "Siguiente"
+  }
+}

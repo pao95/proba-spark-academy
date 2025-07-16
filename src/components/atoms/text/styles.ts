@@ -1,0 +1,37 @@
+export const textStyles = {
+  variants: {
+    h1: "text-4xl font-bold",
+    h2: "text-3xl font-bold",
+    h3: "text-2xl font-semibold",
+    h4: "text-xl font-semibold",
+    h5: "text-lg font-medium",
+    h6: "text-base font-medium",
+    body: "text-base",
+    caption: "text-sm",
+    label: "text-sm font-medium",
+  },
+  sizes: {
+    xs: "text-xs",
+    sm: "text-sm",
+    md: "text-base",
+    lg: "text-lg",
+    xl: "text-xl",
+    "2xl": "text-2xl",
+    "3xl": "text-3xl",
+    "4xl": "text-4xl",
+  },
+  weights: {
+    normal: "font-normal",
+    medium: "font-medium",
+    semibold: "font-semibold",
+    bold: "font-bold",
+  },
+  colors: {
+    primary: "text-gray-900",
+    secondary: "text-gray-700",
+    muted: "text-gray-500",
+    success: "text-green-600",
+    error: "text-red-600",
+    warning: "text-yellow-600",
+  },
+};
