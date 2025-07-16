@@ -29,37 +29,21 @@ export const RecentActivity = () => {
   ];
 
   return (
-    <Card className={recentActivityStyles.base}>
-      <Text variant="h4" className={recentActivityStyles.title}>
-        {t("recentActivity.title")}
-      </Text>
+    <Card variant="default" padding="md">
+      <Text variant="h4">{t("recentActivity.title")}</Text>
 
       <div className={recentActivityStyles.activitiesContainer}>
         {activities.map((activity) => (
           <div key={activity.id} className={recentActivityStyles.activityItem}>
             {activity.type === "success" ? (
-              <Icon
-                icon={CheckCircle}
-                className={recentActivityStyles.activityIcon.success}
-                size={16}
-              />
+              <Icon icon={CheckCircle} size={16} />
             ) : (
-              <Icon
-                icon={XCircle}
-                className={recentActivityStyles.activityIcon.error}
-                size={16}
-              />
+              <Icon icon={XCircle} size={16} />
             )}
             <div className={recentActivityStyles.activityContent}>
-              <Text size="sm" className={recentActivityStyles.activityText}>
-                {activity.text}
-              </Text>
+              <Text size="sm">{activity.text}</Text>
               <div className={recentActivityStyles.timeInfo}>
-                <Icon
-                  icon={Clock}
-                  size={12}
-                  className={recentActivityStyles.timeIcon}
-                />
+                <Icon icon={Clock} size={12} />
                 <Text size="xs">{activity.time}</Text>
               </div>
             </div>

@@ -106,11 +106,9 @@ export const ExerciseItem = ({ exercise }: ExerciseItemProps) => {
   };
 
   return (
-    <Card className={exerciseItemStyles.container}>
+    <Card variant="default" padding="lg">
       <div className={exerciseItemStyles.questionContainer}>
-        <Text variant="h4" className={exerciseItemStyles.questionTitle}>
-          {exercise.question}
-        </Text>
+        <Text variant="h4">{exercise.question}</Text>
         {renderQuestion()}
       </div>
 

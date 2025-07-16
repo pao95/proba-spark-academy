@@ -8,32 +8,22 @@ export const TopicCard = ({ topic }: TopicCardProps) => {
   const { t } = useTranslation();
 
   return (
-    <Card className={topicCardStyles.base}>
+    <Card variant="default" padding="md">
       <div className={topicCardStyles.container}>
         <div className={topicCardStyles.content}>
-          <Text variant="h5" className={topicCardStyles.title}>
-            {topic.title}
-          </Text>
+          <Text variant="h5">{topic.title}</Text>
           <div className={topicCardStyles.timeInfo}>
-            <Icon icon={Clock} size={14} className={topicCardStyles.timeIcon} />
+            <Icon icon={Clock} size={14} />
             <Text size="sm">
               {t("topicCard.lastStudied")} {topic.lastStudied}
             </Text>
           </div>
-          <ProgressBar
-            value={topic.progress}
-            size="sm"
-            className={topicCardStyles.progressBar.container}
-          />
-          <Text size="sm" className={topicCardStyles.progressText}>
+          <ProgressBar value={topic.progress} size="sm" />
+          <Text size="sm">
             {topic.progress}% {t("general.complete")}
           </Text>
         </div>
-        <Icon
-          icon={ChevronRight}
-          className={topicCardStyles.chevronIcon}
-          size={20}
-        />
+        <Icon icon={ChevronRight} size={20} />
       </div>
     </Card>
   );

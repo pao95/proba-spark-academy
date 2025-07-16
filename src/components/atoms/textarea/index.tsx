@@ -10,7 +10,6 @@ export const Textarea: React.FC<TextareaProps> = ({
   fullWidth = true,
   size = "md",
   rows = 4,
-  className = "",
   name,
   required = false,
   resize = "vertical",
@@ -21,7 +20,6 @@ export const Textarea: React.FC<TextareaProps> = ({
     textareaStyles.sizes[size],
     textareaStyles.resize[resize],
     fullWidth && textareaStyles.modifiers.fullWidth,
-    className,
   ]
     .filter(Boolean)
     .join(" ");

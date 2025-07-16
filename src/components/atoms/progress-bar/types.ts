@@ -4,5 +4,4 @@ export interface ProgressBarProps {
   size?: "sm" | "md" | "lg";
   variant?: "default" | "success" | "warning" | "error";
   showLabel?: boolean;
-  className?: string;
 }

@@ -8,14 +8,12 @@ export const ProgressBar: React.FC<ProgressBarProps> = ({
   size = "md",
   variant = "default",
   showLabel = false,
-  className = "",
 }) => {
   const percentage = Math.min(Math.max((value / max) * 100, 0), 100);
 
   const containerClasses = [
     progressBarStyles.base,
     progressBarStyles.sizes[size],
-    className,
   ]
     .filter(Boolean)
     .join(" ");

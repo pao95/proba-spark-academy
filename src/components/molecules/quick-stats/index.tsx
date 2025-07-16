@@ -37,22 +37,14 @@ export const QuickStats = () => {
   return (
     <>
       {stats.map((stat, index) => (
-        <Card key={index} className={quickStatsStyles.base}>
+        <Card key={index} variant="default" padding="md">
           <div className={quickStatsStyles.container}>
             <div className={quickStatsStyles.content}>
-              <Text size="sm" className={quickStatsStyles.label}>
-                {stat.label}
-              </Text>
-              <Text variant="h5" className={quickStatsStyles.value}>
-                {stat.value}
-              </Text>
+              <Text size="sm">{stat.label}</Text>
+              <Text variant="h5">{stat.value}</Text>
             </div>
             <div className={`${quickStatsStyles.iconContainer} ${stat.color}`}>
-              <Icon
-                icon={stat.icon}
-                className={quickStatsStyles.icon}
-                size={24}
-              />
+              <Icon icon={stat.icon} size={24} />
             </div>
           </div>
         </Card>

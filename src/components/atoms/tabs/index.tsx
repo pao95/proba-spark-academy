@@ -26,7 +26,6 @@ export const Tabs: React.FC<TabsProps> = ({
   defaultValue,
   value: controlledValue,
   onValueChange,
-  className = "",
   children,
 }) => {
   const [internalValue, setInternalValue] = useState(defaultValue || "");
@@ -44,26 +43,19 @@ export const Tabs: React.FC<TabsProps> = ({
     onValueChange: handleValueChange,
   };
 
-  const classes = [tabsStyles.base, className].filter(Boolean).join(" ");
-
   return (
     <TabsContext.Provider value={contextValue}>
-      <div className={classes}>{children}</div>
+      <div className={tabsStyles.base}>{children}</div>
     </TabsContext.Provider>
   );
 };
 
-export const TabsList: React.FC<TabsListProps> = ({
-  className = "",
-  children,
-}) => {
-  const classes = [tabsStyles.list, className].filter(Boolean).join(" ");
-  return <div className={classes}>{children}</div>;
+export const TabsList: React.FC<TabsListProps> = ({ children }) => {
+  return <div className={tabsStyles.list}>{children}</div>;
 };
 
 export const TabsTrigger: React.FC<TabsTriggerProps> = ({
   value,
-  className = "",
   children,
   onClick,
 }) => {
@@ -75,11 +67,9 @@ export const TabsTrigger: React.FC<TabsTriggerProps> = ({
     onClick?.();
   };
 
-  const classes = [tabsStyles.trigger, className].filter(Boolean).join(" ");
-
   return (
     <button
-      className={classes}
+      className={tabsStyles.trigger}
       onClick={handleClick}
       data-state={isActive ? "active" : "inactive"}
     >
@@ -90,16 +80,13 @@ export const TabsTrigger: React.FC<TabsTriggerProps> = ({
 
 export const TabsContent: React.FC<TabsContentProps> = ({
   value,
-  className = "",
   children,
   isActive,
 }) => {
   const { value: currentValue } = useTabs();
   const active = isActive ?? currentValue === value;
 
-  const classes = [tabsStyles.content, className].filter(Boolean).join(" ");
-
   if (!active) return null;
 
-  return <div className={classes}>{children}</div>;
+  return <div className={tabsStyles.content}>{children}</div>;
 };

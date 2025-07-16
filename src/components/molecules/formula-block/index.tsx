@@ -9,17 +9,15 @@ export const FormulaBlock = ({
   explanation,
 }: FormulaBlockProps) => {
   return (
-    <Card className={formulaBlockStyles.base}>
+    <Card variant="default" padding="lg">
       <div className={formulaBlockStyles.header}>
-        <Icon icon={Calculator} className={formulaBlockStyles.icon} size={20} />
-        <Text variant="h4" className={formulaBlockStyles.title}>
-          {title}
-        </Text>
+        <Icon icon={Calculator} size={20} />
+        <Text variant="h4">{title}</Text>
       </div>
       <div className={formulaBlockStyles.formulaContainer}>
         <code className={formulaBlockStyles.formula}>{formula}</code>
       </div>
-      <Text className={formulaBlockStyles.explanation}>{explanation}</Text>
+      <Text>{explanation}</Text>
     </Card>
   );
 };

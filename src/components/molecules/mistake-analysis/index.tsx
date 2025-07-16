@@ -15,13 +15,9 @@ export const MistakeAnalysis = () => {
   ];
 
   return (
-    <Card className={mistakeAnalysisStyles.base}>
+    <Card variant="default" padding="lg">
       <div className={mistakeAnalysisStyles.title}>
-        <Icon
-          icon={AlertTriangle}
-          className={mistakeAnalysisStyles.titleIcon}
-          size={20}
-        />
+        <Icon icon={AlertTriangle} size={20} />
         <Text variant="h3">{t("mistakeAnalysis.title")}</Text>
       </div>
 
@@ -29,13 +25,8 @@ export const MistakeAnalysis = () => {
         {commonMistakes.map((mistake, index) => (
           <div key={index} className={mistakeAnalysisStyles.mistakeItem}>
             <div className={mistakeAnalysisStyles.mistakeContent}>
-              <Text
-                variant="h5"
-                className={mistakeAnalysisStyles.mistakeConcept}
-              >
-                {mistake.concept}
-              </Text>
-              <Text className={mistakeAnalysisStyles.mistakeErrors}>
+              <Text variant="h5">{mistake.concept}</Text>
+              <Text>
                 {mistake.errors} {t("mistakeAnalysis.commonMistakes")}
               </Text>
             </div>
@@ -44,15 +35,8 @@ export const MistakeAnalysis = () => {
                 mistake.improvement.startsWith("+") ? "success" : "error"
               }
               size="sm"
-              className={mistakeAnalysisStyles.improvementBadge.base}
             >
-              <Icon
-                icon={TrendingDown}
-                size={12}
-                className={
-                  mistake.improvement.startsWith("+") ? "rotate-180" : ""
-                }
-              />
+              <Icon icon={TrendingDown} size={12} />
               <Text size="sm">{mistake.improvement}</Text>
             </Badge>
           </div>
@@ -60,15 +44,8 @@ export const MistakeAnalysis = () => {
       </div>
 
       <div className={mistakeAnalysisStyles.recommendationSection}>
-        <Text
-          variant="h5"
-          className={mistakeAnalysisStyles.recommendationTitle}
-        >
-          {t("mistakeAnalysis.improvementAreas")}
-        </Text>
-        <Text className={mistakeAnalysisStyles.recommendationText}>
-          {t("mistakeAnalysis.practiceMore")}
-        </Text>
+        <Text variant="h5">{t("mistakeAnalysis.improvementAreas")}</Text>
+        <Text>{t("mistakeAnalysis.practiceMore")}</Text>
       </div>
     </Card>
   );

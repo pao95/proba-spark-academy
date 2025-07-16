@@ -35,10 +35,8 @@ export const AchievementCard = () => {
   ];
 
   return (
-    <Card className={achievementCardStyles.base}>
-      <Text variant="h3" className={achievementCardStyles.title}>
-        {t("achievementCard.achievement")}
-      </Text>
+    <Card variant="default" padding="lg">
+      <Text variant="h3">{t("achievementCard.achievement")}</Text>
       <div className={achievementCardStyles.achievementsContainer}>
         {achievements.map((achievement, index) => (
           <div
@@ -56,37 +54,11 @@ export const AchievementCard = () => {
                   : achievementCardStyles.iconContainer.locked
               }`}
             >
-              <Icon
-                icon={achievement.icon}
-                className={
-                  achievement.earned
-                    ? achievementCardStyles.icon.earned
-                    : achievementCardStyles.icon.locked
-                }
-                size={20}
-              />
+              <Icon icon={achievement.icon} size={20} />
             </div>
             <div className={achievementCardStyles.content}>
-              <Text
-                variant="h5"
-                className={
-                  achievement.earned
-                    ? achievementCardStyles.achievementTitle.earned
-                    : achievementCardStyles.achievementTitle.locked
-                }
-              >
-                {achievement.title}
-              </Text>
-              <Text
-                size="sm"
-                className={
-                  achievement.earned
-                    ? achievementCardStyles.achievementDescription.earned
-                    : achievementCardStyles.achievementDescription.locked
-                }
-              >
-                {achievement.description}
-              </Text>
+              <Text variant="h5">{achievement.title}</Text>
+              <Text size="sm">{achievement.description}</Text>
             </div>
             {achievement.earned && (
               <div className={achievementCardStyles.starIcon}>

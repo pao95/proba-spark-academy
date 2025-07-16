@@ -29,7 +29,6 @@ export const Accordion: React.FC<AccordionProps> = ({
   type = "single",
   value: controlledValue,
   onValueChange,
-  className = "",
   children,
 }) => {
   const [internalValue, setInternalValue] = useState<string | string[]>(
@@ -50,30 +49,25 @@ export const Accordion: React.FC<AccordionProps> = ({
     onValueChange: handleValueChange,
   };
 
-  const classes = [accordionStyles.base, className].filter(Boolean).join(" ");
-
   return (
     <AccordionContext.Provider value={contextValue}>
-      <div className={classes}>{children}</div>
+      <div className={accordionStyles.base}>{children}</div>
     </AccordionContext.Provider>
   );
 };
 
 export const AccordionItem: React.FC<AccordionItemProps> = ({
   value,
-  className = "",
   children,
 }) => {
-  const classes = [accordionStyles.item, className].filter(Boolean).join(" ");
   return (
     <AccordionItemContext.Provider value={value}>
-      <div className={classes}>{children}</div>
+      <div className={accordionStyles.item}>{children}</div>
     </AccordionItemContext.Provider>
   );
 };
 
 export const AccordionTrigger: React.FC<AccordionTriggerProps> = ({
-  className = "",
   children,
   onClick,
 }) => {
@@ -101,7 +95,6 @@ export const AccordionTrigger: React.FC<AccordionTriggerProps> = ({
   const classes = [
     accordionStyles.trigger,
     isOpen && accordionStyles.triggerOpen,
-    className,
   ]
     .filter(Boolean)
     .join(" ");
@@ -119,7 +112,6 @@ export const AccordionTrigger: React.FC<AccordionTriggerProps> = ({
 };
 
 export const AccordionContent: React.FC<AccordionContentProps> = ({
-  className = "",
   children,
   isOpen,
 }) => {
@@ -132,11 +124,7 @@ export const AccordionContent: React.FC<AccordionContentProps> = ({
       ? value === itemValue
       : Array.isArray(value) && value.includes(itemValue));
 
-  const classes = [accordionStyles.content, className]
-    .filter(Boolean)
-    .join(" ");
-
   if (!open) return null;
 
-  return <div className={classes}>{children}</div>;
+  return <div className={accordionStyles.content}>{children}</div>;
 };

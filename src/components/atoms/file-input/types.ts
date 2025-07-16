@@ -3,7 +3,6 @@ export interface FileInputProps {
   multiple?: boolean;
   onChange?: (files: FileList | null) => void;
   disabled?: boolean;
-  className?: string;
   id?: string;
   name?: string;
 }

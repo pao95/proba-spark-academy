@@ -1,3 +1,3 @@
 export interface ToasterProps {
-  className?: string;
+  // No props needed
 }

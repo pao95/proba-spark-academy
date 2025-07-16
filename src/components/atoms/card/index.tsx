@@ -6,13 +6,11 @@ export const Card: React.FC<CardProps> = ({
   children,
   variant = "default",
   padding = "md",
-  className = "",
 }) => {
   const classes = [
     cardStyles.base,
     cardStyles.variants[variant],
     cardStyles.padding[padding],
-    className,
   ]
     .filter(Boolean)
     .join(" ");

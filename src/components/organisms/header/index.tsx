@@ -12,45 +12,31 @@ export const Header = ({ onMenuToggle, isMobile }: HeaderProps) => {
       <div className={headerStyles.container}>
         <div className={headerStyles.leftSection}>
           {isMobile && (
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={onMenuToggle}
-              className={headerStyles.menuButton}
-            >
+            <Button variant="ghost" size="sm" onClick={onMenuToggle}>
               <Icon icon={Menu} size={20} />
             </Button>
           )}
-          <Text variant="h4" className={headerStyles.title}>
-            {t("header.title")}
-          </Text>
+          <Text variant="h4">{t("header.title")}</Text>
         </div>
 
         <div className={headerStyles.rightSection}>
           <div className={headerStyles.searchContainer}>
-            <Icon icon={Search} className={headerStyles.searchIcon} />
             <Input
               type="search"
               placeholder={t("header.searchPlaceholder")}
-              className={headerStyles.searchInput}
+              icon={Search}
             />
           </div>
 
-          <Button
-            variant="ghost"
-            size="sm"
-            className={headerStyles.notificationButton}
-          >
+          <Button variant="ghost" size="sm">
             <Icon icon={Bell} size={20} />
             <span className={headerStyles.notificationDot}></span>
           </Button>
 
           <div className={headerStyles.userSection}>
-            <Avatar className={headerStyles.userAvatar} fallbackIcon={User} />
+            <Avatar fallbackIcon={User} />
 
-            <Text size="sm" className={headerStyles.userName}>
-              {t("general.student")}
-            </Text>
+            <Text size="sm">{t("general.student")}</Text>
           </div>
         </div>
       </div>

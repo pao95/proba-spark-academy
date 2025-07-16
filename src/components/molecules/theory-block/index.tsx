@@ -5,14 +5,12 @@ import { Card, Icon, Text } from "@/components/atoms";
 
 export const TheoryBlock = ({ title, content }: TheoryBlockProps) => {
   return (
-    <Card className={theoryBlockStyles.base}>
+    <Card variant="default" padding="lg">
       <div className={theoryBlockStyles.header}>
-        <Icon icon={BookOpen} className={theoryBlockStyles.icon} size={20} />
-        <Text variant="h3" className={theoryBlockStyles.title}>
-          {title}
-        </Text>
+        <Icon icon={BookOpen} size={20} />
+        <Text variant="h3">{title}</Text>
       </div>
-      <Text className={theoryBlockStyles.content}>{content}</Text>
+      <Text>{content}</Text>
     </Card>
   );
 };

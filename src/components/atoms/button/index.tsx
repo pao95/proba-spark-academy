@@ -10,14 +10,12 @@ export const Button: React.FC<ButtonProps> = ({
   fullWidth = false,
   onClick,
   type = "button",
-  className = "",
 }) => {
   const classes = [
     buttonStyles.base,
     buttonStyles.variants[variant],
     buttonStyles.sizes[size],
     fullWidth && buttonStyles.modifiers.fullWidth,
-    className,
   ]
     .filter(Boolean)
     .join(" ");

@@ -7,7 +7,6 @@ export const FileInput: React.FC<FileInputProps> = ({
   multiple = false,
   onChange,
   disabled = false,
-  className = "",
   id,
   name,
 }) => {
@@ -15,11 +14,7 @@ export const FileInput: React.FC<FileInputProps> = ({
     onChange?.(e.target.files);
   };
 
-  const classes = [
-    fileInputStyles.base,
-    disabled && fileInputStyles.disabled,
-    className,
-  ]
+  const classes = [fileInputStyles.base, disabled && fileInputStyles.disabled]
     .filter(Boolean)
     .join(" ");
 

@@ -4,6 +4,5 @@ export interface RadioButtonProps {
   checked: boolean;
   onChange: (value: string | number) => void;
   disabled?: boolean;
-  className?: string;
   label?: React.ReactNode;
 }

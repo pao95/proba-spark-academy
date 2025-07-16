@@ -13,6 +13,5 @@ export interface TextProps {
   size?: "xs" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl" | "4xl";
   weight?: "normal" | "medium" | "semibold" | "bold";
   color?: "primary" | "secondary" | "muted" | "success" | "error" | "warning";
-  className?: string;
   as?: keyof JSX.IntrinsicElements;
 }

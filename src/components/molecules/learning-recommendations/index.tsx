@@ -45,10 +45,8 @@ export const LearningRecommendations = () => {
   };
 
   return (
-    <Card className={learningRecommendationsStyles.base}>
-      <Text variant="h3" className={learningRecommendationsStyles.title}>
-        {t("learningRecommendations.title")}
-      </Text>
+    <Card variant="default" padding="lg">
+      <Text variant="h3">{t("learningRecommendations.title")}</Text>
 
       <div className={learningRecommendationsStyles.recommendationsContainer}>
         {recommendations.map((rec, index) => (
@@ -60,22 +58,11 @@ export const LearningRecommendations = () => {
               className={learningRecommendationsStyles.recommendationContent}
             >
               <div className={learningRecommendationsStyles.iconContainer}>
-                <Icon
-                  icon={rec.icon}
-                  className={learningRecommendationsStyles.icon}
-                  size={16}
-                />
+                <Icon icon={rec.icon} size={16} />
               </div>
               <div className={learningRecommendationsStyles.content}>
                 <div className={learningRecommendationsStyles.header}>
-                  <Text
-                    variant="h5"
-                    className={
-                      learningRecommendationsStyles.recommendationTitle
-                    }
-                  >
-                    {rec.title}
-                  </Text>
+                  <Text variant="h5">{rec.title}</Text>
                   <Badge
                     variant={getPriorityVariant(rec.priority) as any}
                     size="sm"
@@ -83,15 +70,9 @@ export const LearningRecommendations = () => {
                     {rec.priority}
                   </Badge>
                 </div>
-                <Text className={learningRecommendationsStyles.description}>
-                  {rec.description}
-                </Text>
+                <Text>{rec.description}</Text>
                 <div className={learningRecommendationsStyles.timeInfo}>
-                  <Icon
-                    icon={Clock}
-                    size={12}
-                    className={learningRecommendationsStyles.timeIcon}
-                  />
+                  <Icon icon={Clock} size={12} />
                   <Text size="sm">{rec.estimatedTime}</Text>
                 </div>
               </div>

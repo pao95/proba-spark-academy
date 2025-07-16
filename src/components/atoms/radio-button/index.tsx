@@ -8,7 +8,6 @@ export const RadioButton: React.FC<RadioButtonProps> = ({
   checked,
   onChange,
   disabled = false,
-  className = "",
   label,
 }) => {
   const handleChange = () => {
@@ -20,7 +19,6 @@ export const RadioButton: React.FC<RadioButtonProps> = ({
   const classes = [
     radioButtonStyles.base,
     disabled && radioButtonStyles.disabled,
-    className,
   ]
     .filter(Boolean)
     .join(" ");

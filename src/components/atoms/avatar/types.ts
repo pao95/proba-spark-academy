@@ -6,5 +6,4 @@ export interface AvatarProps {
   size?: "sm" | "md" | "lg" | "xl";
   fallback?: string;
   fallbackIcon?: LucideIcon;
-  className?: string;
 }

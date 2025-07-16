@@ -10,15 +10,15 @@ export const Input: React.FC<InputProps> = ({
   disabled = false,
   fullWidth = true,
   size = "md",
-  className = "",
   name,
   required = false,
+  icon: Icon,
 }) => {
-  const classes = [
+  const inputClasses = [
     inputStyles.base,
     inputStyles.sizes[size],
+    Icon && inputStyles.withIcon,
     fullWidth && inputStyles.modifiers.fullWidth,
-    className,
   ]
     .filter(Boolean)
     .join(" ");
@@ -27,10 +27,10 @@ export const Input: React.FC<InputProps> = ({
     onChange?.(e.target.value);
   };
 
-  return (
+  const inputElement = (
     <input
       type={type}
-      className={classes}
+      className={inputClasses}
       placeholder={placeholder}
       value={value}
       onChange={handleChange}
@@ -39,4 +39,17 @@ export const Input: React.FC<InputProps> = ({
       required={required}
     />
   );
+
+  if (Icon) {
+    return (
+      <div className={inputStyles.container}>
+        <Icon
+          className={`${inputStyles.icon} ${inputStyles.iconSizes[size]}`}
+        />
+        {inputElement}
+      </div>
+    );
+  }
+
+  return inputElement;
 };

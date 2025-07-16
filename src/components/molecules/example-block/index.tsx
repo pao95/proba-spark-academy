@@ -9,24 +9,18 @@ export const ExampleBlock = ({
   solution,
 }: ExampleBlockProps) => {
   return (
-    <Card className={exampleBlockStyles.base}>
+    <Card variant="default" padding="lg">
       <div className={exampleBlockStyles.header}>
-        <Icon icon={Lightbulb} className={exampleBlockStyles.icon} size={20} />
-        <Text variant="h4" className={exampleBlockStyles.title}>
-          {title}
-        </Text>
+        <Icon icon={Lightbulb} size={20} />
+        <Text variant="h4">{title}</Text>
       </div>
       <div className={exampleBlockStyles.content}>
         <div className={exampleBlockStyles.section}>
-          <Text variant="h5" className={exampleBlockStyles.sectionTitle}>
-            Problem:
-          </Text>
-          <Text className={exampleBlockStyles.problemText}>{problem}</Text>
+          <Text variant="h5">Problem:</Text>
+          <Text>{problem}</Text>
         </div>
         <div className={exampleBlockStyles.section}>
-          <Text variant="h5" className={exampleBlockStyles.sectionTitle}>
-            Solution:
-          </Text>
+          <Text variant="h5">Solution:</Text>
           <pre className={exampleBlockStyles.solutionText}>{solution}</pre>
         </div>
       </div>

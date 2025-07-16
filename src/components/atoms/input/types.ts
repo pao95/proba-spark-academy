@@ -1,3 +1,5 @@
+import { LucideIcon } from "lucide-react";
+
 export interface InputProps {
   type?: "text" | "email" | "password" | "number" | "search";
   placeholder?: string;
@@ -6,7 +8,7 @@ export interface InputProps {
   disabled?: boolean;
   fullWidth?: boolean;
   size?: "sm" | "md" | "lg";
-  className?: string;
   name?: string;
   required?: boolean;
+  icon?: LucideIcon;
 }

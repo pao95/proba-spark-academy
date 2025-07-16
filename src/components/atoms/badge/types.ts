@@ -8,5 +8,4 @@ export interface BadgeProps {
     | "warning"
     | "error";
   size?: "sm" | "md" | "lg";
-  className?: string;
 }

@@ -6,7 +6,6 @@ export interface TextareaProps {
   fullWidth?: boolean;
   size?: "sm" | "md" | "lg";
   rows?: number;
-  className?: string;
   name?: string;
   required?: boolean;
   resize?: "none" | "vertical" | "horizontal" | "both";

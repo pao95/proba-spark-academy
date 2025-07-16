@@ -22,10 +22,8 @@ export const ProgressChart = () => {
   ];
 
   return (
-    <Card className={progressChartStyles.base}>
-      <Text variant="h3" className={progressChartStyles.title}>
-        Learning Progress
-      </Text>
+    <Card variant="default" padding="lg">
+      <Text variant="h3">Learning Progress</Text>
       <div className={progressChartStyles.chartContainer}>
         <ResponsiveContainer width="100%" height="100%">
           <LineChart data={data}>
@@ -53,15 +51,11 @@ export const ProgressChart = () => {
       <div className={progressChartStyles.legendContainer}>
         <div className={progressChartStyles.legendItem}>
           <div className={progressChartStyles.legendDot.progress}></div>
-          <Text size="sm" className={progressChartStyles.legendText}>
-            Progress %
-          </Text>
+          <Text size="sm">Progress %</Text>
         </div>
         <div className={progressChartStyles.legendItem}>
           <div className={progressChartStyles.legendDot.exercises}></div>
-          <Text size="sm" className={progressChartStyles.legendText}>
-            Exercises Completed
-          </Text>
+          <Text size="sm">Exercises Completed</Text>
         </div>
       </div>
     </Card>

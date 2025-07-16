@@ -50,13 +50,9 @@ export const CustomExerciseInput = ({
 
   return (
     <div className={customExerciseInputStyles.container}>
-      <Card className={customExerciseInputStyles.mainCard}>
-        <Text variant="h3" className={customExerciseInputStyles.title}>
-          {t("exerciseInterface.question")}
-        </Text>
-        <Text className={customExerciseInputStyles.description}>
-          {t("exerciseInterface.explanation")}
-        </Text>
+      <Card variant="default" padding="lg">
+        <Text variant="h3">{t("exerciseInterface.question")}</Text>
+        <Text>{t("exerciseInterface.explanation")}</Text>
 
         <div className={customExerciseInputStyles.grid}>
           <div className={customExerciseInputStyles.section}>
@@ -128,13 +124,8 @@ export const CustomExerciseInput = ({
       </Card>
 
       {solution && (
-        <Card className={customExerciseInputStyles.solutionCard}>
-          <Text
-            variant="h4"
-            className={customExerciseInputStyles.solutionTitle}
-          >
-            {t("exerciseInterface.solution")}
-          </Text>
+        <Card variant="default" padding="lg">
+          <Text variant="h4">{t("exerciseInterface.solution")}</Text>
           <div className={customExerciseInputStyles.solutionContainer}>
             <pre className={customExerciseInputStyles.solutionText}>
               {solution}

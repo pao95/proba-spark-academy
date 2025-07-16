@@ -8,9 +8,8 @@ export const Avatar: React.FC<AvatarProps> = ({
   size = "md",
   fallback,
   fallbackIcon: FallbackIcon,
-  className = "",
 }) => {
-  const classes = [avatarStyles.base, avatarStyles.sizes[size], className]
+  const classes = [avatarStyles.base, avatarStyles.sizes[size]]
     .filter(Boolean)
     .join(" ");
 
@@ -21,23 +20,10 @@ export const Avatar: React.FC<AvatarProps> = ({
   };
 
   const getFallbackClasses = () => {
-    const baseFallback = avatarStyles.fallback;
-    const hasCustomClass = className.includes("bg-");
-
-    if (hasCustomClass) {
-      return `${baseFallback} text-white`;
-    }
-
-    return `${baseFallback} bg-gray-100 text-gray-600 font-medium`;
+    return `${avatarStyles.fallback} bg-gray-100 text-gray-600 font-medium`;
   };
 
   const getIconClasses = () => {
-    const hasCustomClass = className.includes("bg-");
-
-    if (hasCustomClass) {
-      return `${avatarStyles.icon} text-white`;
-    }
-
     return avatarStyles.icon;
   };
 
