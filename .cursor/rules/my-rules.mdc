@@ -1,0 +1,213 @@
+---
+alwaysApply: true
+---
+
+# React Rules
+
+You are an expert in TypeScript and React development.
+
+## Components
+
+This directory contains all the components that can be reused in the project, organized by Atomic Design: `atoms/`, `molecules/`, y `organisms/`.
+Whenever you are asked to create a new component or implement a new design, create it in the respective subfolder (`atoms/`, `molecules/`, `organisms/`) inside `components/`.
+
+For example, for an atom:
+
+```
+components/atoms/button
+├── index.tsx      // contains all the component logic
+├── styles.ts      // contains component styling
+└── types.ts       // contains any types associated with the component
+```
+
+For a molecule:
+
+```
+components/molecules/loginForm
+├── index.tsx
+├── styles.ts
+└── types.ts
+```
+
+For an organism:
+
+```
+components/organisms/header
+├── index.tsx
+├── styles.ts
+└── types.ts
+```
+
+## Implementing the modules
+
+Each module must follow the MVP (Model-View-Presenter) architecture with the following structure:
+
+```
+modules/moduleName/
+├── ModuleNameInitialize.ts         // Module initialization and dependency registration
+├── core/                           // Business logic (Model)
+│   ├── entities/                   // Entities and data types
+│   │   └── IModuleName.ts
+│   ├── gateway/                    // Interfaces for data access
+│   │   └── IModuleNameGateway.ts
+│   ├── presentation/               // Presenter interfaces
+│   │   └── IModuleNamePresenter.ts
+│   ├── screens/                    // Screen interfaces
+│   │   └── IModuleNameScreen.ts
+│   └── actions/                    // Use cases and business logic
+│       ├── ModuleNameCreateAction.ts
+│       ├── ModuleNameUpdateAction.ts
+│       └── ModuleNameDeleteAction.ts
+├── infrastructure/                 // Concrete implementations (Presenter)
+│   ├── gateway/                    // Gateway implementations
+│   │   └── ModuleNameGateway.ts
+│   └── presentation/               // Presenter implementations
+│       ├── ModuleNamePresenter.ts
+│       └── presenterProvider.ts
+└── screens/                        // UI components (View)
+    ├── components/                 // Module-specific components
+    │   └── componentName/          // component-specific component folder
+    │       ├── index.tsx           // Main component file
+    │       ├── styles.ts
+    │       └── types.ts
+    ├── index.tsx                   // Main module screen
+    ├── styles.ts
+    └── types.ts
+
+```
+
+#### MVP Architecture Structure:
+
+1. **Core (Model)**: Contains all business logic, entities, interfaces, and use cases
+2. **Infrastructure (Presenter)**: Implements core interfaces and handles communication between Model and View
+3. **Screens (View)**: UI components that only handle presentation
+
+#### Implementation Example:
+
+- **Entities**: Define data interfaces (IExampleRequest, IExampleResponse)
+- **Gateway**: Define how to access external data (IExampleGateway)
+- **Presenter**: Define how logic communicates with UI (IExamplePresenter)
+- **Screen**: Define how UI responds to events (IExampleScreen)
+- **Actions**: Implement specific use cases (ExampleCreateAction)
+- **Initialize**: Register all module dependencies
+
+Each module must be independent and follow this structure to maintain separation of concerns and facilitate testing.
+
+## Code Style and Structure
+
+- Write concise, type-safe TypeScript code.
+- Use functional components and hooks over class components. Use arrow functions to create the components and add proper typings wherever needed.
+- Ensure components are modular, reusable, and maintainable.
+- Destructure objects as much as possible.
+- Always split the component code from styles. Styles should always go in a separate file.
+
+### Styling with Tailwind CSS
+
+- **Separate styles from logic**: Always define Tailwind classes in a separate `styles.ts` file
+- **Use object-based approach**: Organize styles in a single object with nested properties
+- **Structure styles logically**: Group by base styles, variants, sizes, states, and modifiers
+- **Maintain consistency**: Use the same structure pattern across all components
+
+**Example structure:**
+
+```typescript
+// styles.ts
+export const componentStyles = {
+  base: "base-classes-here",
+  variants: {
+    primary: "variant-classes-here",
+    secondary: "variant-classes-here",
+  },
+  sizes: {
+    small: "size-classes-here",
+    normal: "size-classes-here",
+    large: "size-classes-here",
+  },
+  states: {
+    disabled: "state-classes-here",
+    active: "state-classes-here",
+  },
+  modifiers: {
+    fullWidth: "modifier-classes-here",
+    shadow: "modifier-classes-here",
+  },
+};
+
+// index.tsx
+import { componentStyles } from "./styles";
+
+export const Component: React.FC<Props> = ({ variant, size, disabled }) => {
+  const classes = [
+    componentStyles.base,
+    componentStyles.variants[variant],
+    componentStyles.sizes[size],
+    disabled && componentStyles.states.disabled,
+  ]
+    .filter(Boolean)
+    .join(" ");
+
+  return <div className={classes}>Content</div>;
+};
+```
+
+## Best Practices
+
+- All component names, file names, variable names, function names, folder names, and any identifier in the code must be written in English. Do not use Spanish or any other language for code identifiers, only for user-facing texts.
+- Use **camelCase** for variable and function names (e.g., `onClick`, `handleSubmit`).
+- Use **PascalCase** for component names in React (e.g., `UserProfile`, `ChatScreen`).
+- Directory names should be **lowercase and hyphenated** (e.g., `user-profile`, `chat-screen`).
+- Avoid using ambiguous names for variables or components.
+
+## Internationalization (i18n)
+
+### Translation Structure
+
+- All translations must be defined in the `src/assets/i18n/es.json` file
+- Each translation must be organized by module name or general component usage
+- Use nested objects to group translations by module/component
+
+### Translation File Structure
+
+```
+src/assets/i18n/
+└── es.json
+```
+
+### Translation Organization
+
+```json
+{
+  "general": {
+    "welcome": "Bienvenido",
+    "loading": "Cargando...",
+    "error": "Error"
+  },
+  "moduleName": {
+    "title": "Título del módulo",
+    "description": "Descripción del módulo",
+    "actions": {
+      "create": "Crear",
+      "update": "Actualizar",
+      "delete": "Eliminar"
+    }
+  },
+  "componentName": {
+    "label": "Etiqueta del componente",
+    "placeholder": "Placeholder del componente"
+  }
+}
+```
+
+### Usage Guidelines
+
+- **Module-specific translations**: Group under the module name (e.g., "userProfile", "dashboard")
+- **General component translations**: Group under "general" or the component name
+- **Nested translations**: Use nested objects for related translations (e.g., "actions", "messages")
+- **Consistent naming**: Use camelCase for translation keys
+- **Descriptive keys**: Use clear, descriptive names that indicate the context
+
+### Implementation
+
+- Import and configure i18n in `src/i18n.ts`
+- Use the `useTranslation` hook from `react-i18next` in components
+- Access translations using dot notation: `t('moduleName.title')`
