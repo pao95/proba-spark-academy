@@ -8,5 +8,6 @@ export const avatarStyles = {
   },
   image: "aspect-square h-full w-full",
   fallback:
-    "flex h-full w-full items-center justify-center rounded-full bg-gray-100 text-gray-600 font-medium",
+    "flex h-full w-full items-center justify-center rounded-full overflow-hidden",
+  icon: "h-1/2 w-1/2 text-gray-600 shrink-0",
 };

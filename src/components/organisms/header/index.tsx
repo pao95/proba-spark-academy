@@ -46,10 +46,8 @@ export const Header = ({ onMenuToggle, isMobile }: HeaderProps) => {
           </Button>
 
           <div className={headerStyles.userSection}>
-            <Avatar
-              className={headerStyles.userAvatar}
-              fallback={t("general.student")}
-            />
+            <Avatar className={headerStyles.userAvatar} fallbackIcon={User} />
+
             <Text size="sm" className={headerStyles.userName}>
               {t("general.student")}
             </Text>

@@ -19,7 +19,7 @@ export const curriculumGridStyles = {
   pathTitle: "text-xl font-semibold text-gray-800",
   pathDescription: "text-sm text-gray-600",
   accordion: "space-y-4",
-  accordionItem: "bg-white rounded-lg shadow-sm border border-gray-200",
+  accordionItem: "bg-white rounded-lg shadow-sm border border-gray-200 px-4",
   accordionTrigger: "p-6 hover:no-underline",
   unitHeader: "flex items-start justify-between w-full",
   unitContent: "flex-1 text-left",

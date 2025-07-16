@@ -3,13 +3,13 @@ import { Sonner } from "@/components/atoms";
 import { TooltipProvider } from "@/components/atoms";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Index from "./pages/Index";
-import Curriculum from "./pages/Curriculum";
-import Theory from "./pages/Theory";
-import Exercises from "./pages/Exercises";
-import Assistant from "./pages/Assistant";
-import Progress from "./pages/Progress";
-import NotFound from "./pages/NotFound";
+import Index from "./modules/index/screens";
+import Curriculum from "./modules/curriculum/screens";
+import Theory from "./modules/theory/screens";
+import Exercises from "./modules/exercises/screens";
+import Assistant from "./modules/assistant/screens";
+import Progress from "./modules/progress/screens";
+import NotFound from "./modules/not-found/screens";
 
 const queryClient = new QueryClient();
 

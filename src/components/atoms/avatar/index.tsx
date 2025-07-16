@@ -7,6 +7,7 @@ export const Avatar: React.FC<AvatarProps> = ({
   alt,
   size = "md",
   fallback,
+  fallbackIcon: FallbackIcon,
   className = "",
 }) => {
   const classes = [avatarStyles.base, avatarStyles.sizes[size], className]
@@ -19,12 +20,39 @@ export const Avatar: React.FC<AvatarProps> = ({
     return "U";
   };
 
+  const getFallbackClasses = () => {
+    const baseFallback = avatarStyles.fallback;
+    const hasCustomClass = className.includes("bg-");
+
+    if (hasCustomClass) {
+      return `${baseFallback} text-white`;
+    }
+
+    return `${baseFallback} bg-gray-100 text-gray-600 font-medium`;
+  };
+
+  const getIconClasses = () => {
+    const hasCustomClass = className.includes("bg-");
+
+    if (hasCustomClass) {
+      return `${avatarStyles.icon} text-white`;
+    }
+
+    return avatarStyles.icon;
+  };
+
   return (
     <div className={classes}>
       {src ? (
         <img src={src} alt={alt} className={avatarStyles.image} />
       ) : (
-        <div className={avatarStyles.fallback}>{getFallbackText()}</div>
+        <div className={getFallbackClasses()}>
+          {FallbackIcon ? (
+            <FallbackIcon className={getIconClasses()} />
+          ) : (
+            getFallbackText()
+          )}
+        </div>
       )}
     </div>
   );

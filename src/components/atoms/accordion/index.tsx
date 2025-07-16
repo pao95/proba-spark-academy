@@ -15,6 +15,7 @@ interface AccordionContextType {
 }
 
 const AccordionContext = createContext<AccordionContextType | null>(null);
+const AccordionItemContext = createContext<string>("");
 
 const useAccordion = () => {
   const context = useContext(AccordionContext);
@@ -64,7 +65,11 @@ export const AccordionItem: React.FC<AccordionItemProps> = ({
   children,
 }) => {
   const classes = [accordionStyles.item, className].filter(Boolean).join(" ");
-  return <div className={classes}>{children}</div>;
+  return (
+    <AccordionItemContext.Provider value={value}>
+      <div className={classes}>{children}</div>
+    </AccordionItemContext.Provider>
+  );
 };
 
 export const AccordionTrigger: React.FC<AccordionTriggerProps> = ({
@@ -73,22 +78,42 @@ export const AccordionTrigger: React.FC<AccordionTriggerProps> = ({
   onClick,
 }) => {
   const { type, value, onValueChange } = useAccordion();
-  // This is a simplified version - in a real implementation, we'd need to pass the item value
-  const isOpen = false; // Placeholder - would need item value to determine
+  const itemValue = React.useContext(AccordionItemContext);
+
+  const isOpen =
+    type === "single"
+      ? value === itemValue
+      : Array.isArray(value) && value.includes(itemValue);
 
   const handleClick = () => {
-    // Simplified click handler - would need item value to work properly
+    if (type === "single") {
+      onValueChange(isOpen ? "" : itemValue);
+    } else {
+      const currentValue = Array.isArray(value) ? value : [];
+      const newValue = isOpen
+        ? currentValue.filter((v) => v !== itemValue)
+        : [...currentValue, itemValue];
+      onValueChange(newValue);
+    }
     onClick?.();
   };
 
-  const classes = [accordionStyles.trigger, className]
+  const classes = [
+    accordionStyles.trigger,
+    isOpen && accordionStyles.triggerOpen,
+    className,
+  ]
     .filter(Boolean)
     .join(" ");
 
   return (
     <button className={classes} onClick={handleClick}>
       {children}
-      <ChevronDown className={accordionStyles.chevron} />
+      <ChevronDown
+        className={`${accordionStyles.chevron} ${
+          isOpen ? accordionStyles.chevronOpen : ""
+        }`}
+      />
     </button>
   );
 };
@@ -99,8 +124,13 @@ export const AccordionContent: React.FC<AccordionContentProps> = ({
   isOpen,
 }) => {
   const { type, value } = useAccordion();
-  // This is a simplified version - in a real implementation, we'd need to pass the item value
-  const open = isOpen ?? false; // Placeholder - would need item value to determine
+  const itemValue = React.useContext(AccordionItemContext);
+
+  const open =
+    isOpen ??
+    (type === "single"
+      ? value === itemValue
+      : Array.isArray(value) && value.includes(itemValue));
 
   const classes = [accordionStyles.content, className]
     .filter(Boolean)
