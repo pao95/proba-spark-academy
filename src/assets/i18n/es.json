@@ -39,7 +39,8 @@
     "locked": "Bloqueado",
     "upload": "Subir",
     "select": "Seleccionar",
-    "of": "de"
+    "of": "de",
+    "review": "Repasar"
   },
   "header": {
     "title": "Probabilidad y Estadística",
@@ -159,5 +160,11 @@
     "estimatedTime": "Tiempo Estimado",
     "difficulty": "Dificultad",
     "next": "Siguiente"
+  },
+  "combinedLearning": {
+    "backToCurriculum": "Volver al Currículo",
+    "selectMode": "Selecciona el modo de aprendizaje",
+    "theoryMode": "Modo Teoría",
+    "practiceMode": "Modo Práctica"
   }
 }
