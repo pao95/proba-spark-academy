@@ -6,10 +6,12 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/atoms";
-import { Unit } from "./types";
+import { Unit, CurriculumGridProps } from "./types";
 import { curriculumGridStyles } from "./styles";
 
-export const CurriculumGrid = () => {
+export const CurriculumGrid: React.FC<CurriculumGridProps> = ({
+  onSubunitClick,
+}) => {
   const { t } = useTranslation();
 
   const units: Unit[] = [
@@ -372,24 +374,25 @@ export const CurriculumGrid = () => {
                         </div>
                       </div>
                       <div className={curriculumGridStyles.topicActions}>
-                        {topic.isCompleted ? (
-                          <span
-                            className={
-                              curriculumGridStyles.statusBadge.completed
-                            }
-                          >
-                            {t("general.completed")}
-                          </span>
-                        ) : topic.isLocked ? (
+                        {topic.isLocked ? (
                           <span
                             className={curriculumGridStyles.statusBadge.locked}
                           >
                             {t("general.locked")}
                           </span>
                         ) : (
-                          <button className={curriculumGridStyles.startButton}>
+                          <button
+                            className={curriculumGridStyles.startButton}
+                            onClick={() =>
+                              onSubunitClick(`unit-${unit.id}`, topic.id)
+                            }
+                          >
                             <Play className="w-4 h-4" />
-                            <span>{t("general.start")}</span>
+                            <span>
+                              {topic.isCompleted
+                                ? t("general.review")
+                                : t("general.start")}
+                            </span>
                           </button>
                         )}
                       </div>

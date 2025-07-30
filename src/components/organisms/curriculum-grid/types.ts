@@ -16,3 +16,7 @@ export interface Unit {
   difficulty: "Beginner" | "Intermediate" | "Advanced";
   topics: Topic[];
 }
+
+export interface CurriculumGridProps {
+  onSubunitClick: (unitId: string, subunitId: string) => void;
+}

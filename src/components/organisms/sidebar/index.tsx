@@ -21,11 +21,7 @@ export const Sidebar = ({ isOpen, onToggle, isMobile }: SidebarProps) => {
 
   const navItems: NavItem[] = [
     { icon: BarChart3, label: t("sidebar.dashboard"), path: "/" },
-    { icon: BookOpen, label: t("sidebar.curriculum"), path: "/curriculum" },
-    { icon: GraduationCap, label: t("sidebar.theory"), path: "/theory" },
-    { icon: PenTool, label: t("sidebar.exercises"), path: "/exercises" },
     { icon: MessageCircle, label: t("sidebar.assistant"), path: "/assistant" },
-    { icon: User, label: t("sidebar.progress"), path: "/progress" },
   ];
 
   const getContainerClasses = () => {
