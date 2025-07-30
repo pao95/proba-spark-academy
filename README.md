@@ -10,12 +10,20 @@ A modern learning platform built with React and TypeScript, designed to provide 
 - **Combined Learning Experience**: Seamless navigation between different learning materials
 - **Progress Tracking**: Monitor your learning journey through various educational content
 - **Responsive Design**: Optimized for all devices and screen sizes
+  
+<img width="1429" height="907" alt="image" src="https://github.com/user-attachments/assets/3213c391-d834-4a30-a534-c60ddccc332a" />
+
+<img width="1426" height="894" alt="image" src="https://github.com/user-attachments/assets/825db687-dab1-4d61-bdc4-f40fe9db6ba7" />
+
+<img width="1425" height="909" alt="image" src="https://github.com/user-attachments/assets/78962e8f-4a74-4fa6-a697-9b927d2125fd" />
 
 ### 🤖 AI Assistant Module
 
 - **Intelligent Chat Interface**: Get instant help and answers to your questions
 - **Context-Aware Responses**: AI assistant that understands your learning context
 - **Real-time Interaction**: Smooth and responsive chat experience
+
+<img width="1439" height="897" alt="image" src="https://github.com/user-attachments/assets/6a734081-f384-4618-8f1e-c5aa27316ab1" />
 
 ### 🌐 Internationalization
 
