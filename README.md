@@ -1,73 +1,126 @@
-# Welcome to your Lovable project
+# Proba Academy
 
-## Project info
+A modern learning platform built with React and TypeScript, designed to provide an interactive educational experience with AI-powered assistance.
 
-**URL**: https://lovable.dev/projects/26997778-0297-414b-b36c-b68e7f2448fe
+## 🚀 Features
 
-## How can I edit this code?
+### 📚 Curriculum Module
 
-There are several ways of editing your application.
+- **Interactive Learning Grid**: Browse through organized curriculum units and subunits
+- **Combined Learning Experience**: Seamless navigation between different learning materials
+- **Progress Tracking**: Monitor your learning journey through various educational content
+- **Responsive Design**: Optimized for all devices and screen sizes
 
-**Use Lovable**
+### 🤖 AI Assistant Module
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/26997778-0297-414b-b36c-b68e7f2448fe) and start prompting.
+- **Intelligent Chat Interface**: Get instant help and answers to your questions
+- **Context-Aware Responses**: AI assistant that understands your learning context
+- **Real-time Interaction**: Smooth and responsive chat experience
 
-Changes made via Lovable will be committed automatically to this repo.
+### 🌐 Internationalization
 
-**Use your preferred IDE**
+- **Multi-language Support**: Built-in i18n support with Spanish as the primary language
+- **Extensible Translation System**: Easy to add new languages and translations
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## 🛠️ Technologies
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### Core Technologies
 
-Follow these steps:
+- **React 18.3.1** - Modern React with hooks and functional components
+- **TypeScript 5.5.3** - Type-safe JavaScript development
+- **Vite 5.4.1** - Fast build tool and development server
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+### UI & Styling
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+- **Tailwind CSS 3.4.11** - Utility-first CSS framework
+- **shadcn/ui** - High-quality React components built on Radix UI
+- **Radix UI** - Accessible and unstyled UI primitives
+- **Lucide React** - Beautiful and consistent icon library
 
-# Step 3: Install the necessary dependencies.
-npm i
+### State Management & Data Fetching
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+- **TanStack Query 5.56.2** - Powerful data synchronization for React
+- **React Hook Form 7.53.0** - Performant forms with easy validation
+- **Zod 3.23.8** - TypeScript-first schema validation
+
+### Routing & Navigation
+
+- **React Router DOM 6.26.2** - Declarative routing for React
+
+## 🏗️ Architecture
+
+### MVP (Model-View-Presenter) Architecture
+
+The project follows the MVP architectural pattern for clean separation of concerns:
+
+```
+src/modules/[moduleName]/
+├── ModuleNameInitialize.ts         # Module initialization
+├── core/                           # Business logic (Model)
+│   ├── entities/                   # Data types and interfaces
+│   ├── gateway/                    # Data access interfaces
+│   ├── presentation/               # Presenter interfaces
+│   ├── screens/                    # Screen interfaces
+│   └── actions/                    # Use cases and business logic
+├── infrastructure/                 # Concrete implementations (Presenter)
+│   ├── gateway/                    # Gateway implementations
+│   └── presentation/               # Presenter implementations
+└── screens/                        # UI components (View)
 ```
 
-**Edit a file directly in GitHub**
+### Atomic Design Component Structure
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+Components are organized following Atomic Design principles:
 
-**Use GitHub Codespaces**
+```
+src/components/
+├── atoms/                          # Basic building blocks
+├── molecules/                      # Simple component combinations
+├── organisms/                      # Complex UI sections
+└── templates/                      # Page layouts
+```
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+### Key Architectural Features
 
-## What technologies are used for this project?
+- **Functional Programming**: Pure functions, immutability, and composition
+- **Type Safety**: Full TypeScript implementation
+- **Modular Design**: Independent modules with clear boundaries
+- **Separation of Concerns**: Clear distinction between business logic and UI
 
-This project is built with:
+## 📋 Prerequisites
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+- **Node.js**: Version 18.0.0 or higher
+- **npm**: Version 8.0.0 or higher (comes with Node.js)
+- **Git**: For cloning the repository
 
-## How can I deploy this project?
+## 🚀 Installation
 
-Simply open [Lovable](https://lovable.dev/projects/26997778-0297-414b-b36c-b68e7f2448fe) and click on Share -> Publish.
+1. **Clone the repository**
 
-## Can I connect a custom domain to my Lovable project?
+   ```bash
+   git clone https://github.com/pao95/proba-spark-academy.git
+   cd proba-spark-academy
+   ```
 
-Yes, you can!
+2. **Install dependencies**
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+   ```bash
+   npm install
+   ```
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+3. **Start the development server**
+
+   ```bash
+   npm run dev
+   ```
+
+4. **Open your browser**
+   Navigate to `http://localhost:8080` to view the application
+
+## 📜 Available Scripts
+
+- `npm run dev` - Start development server with hot reload
+- `npm run build` - Build for production
+- `npm run build:dev` - Build for development
+- `npm run preview` - Preview production build locally
+- `npm run lint` - Run ESLint for code quality
